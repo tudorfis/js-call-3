@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <div class="register">
+            <h1>You don't have an account? Register now!</h1>
+            <div class="form-group">
+                <label for="firstName"><b>First name</b></label>
+                <input id="firstName" type="text" placeholder="Type your first name"/>
+            </div>
+            <div class="form-group">
+                <label for="lastName"><strong>Last name</strong></label>
+                <input id="lastName" type="text" placeholder="Type your last name"/>
+            </div>
+            <div class="form-group">
+                <label for="mail">E-mail Address</label>
+                <input id="mail" type="email" placeholder="Type your e-mail address"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Type your password"/>
+            </div>
+            <div class="form-group">
+                <label for="passwordCheck"> Re-Password</label> 
+                <input id="passwordCheck" type="password" placeholder="Re-type your password"/>
+            </div>
+            <button 
+                id="submitBtn" 
+                disabled="true"
+            > 
+            Submit </button>
+        </div>
+
+        <style>
+            * {
+                font-family: Arial;
+            }
+            h1 {
+                background: rgb(111, 134, 141); 
+                color: white;
+                padding: 10px;
+            }
+            label {
+                display: block; 
+                background: rgb(126, 147, 165); 
+                color: white;
+                padding: 10px;
+                margin: 5px;
+            }
+            .form-group {
+                border:2px solid rgb(28, 167, 136);
+                padding: 10px;
+                margin: 10px;
+            }
+            button {
+                width: 200px;
+                height: 50px;
+                background-color: thistle;
+                margin-left: 15px;
+                color: white;
+            }
+            input {
+                margin-left: 15px;
+            }
+            .register {
+                border:2px solid rgb(212, 0, 255);
+                padding: 10px;
+                margin: 10px;
+            }
+        </style>
+
+        <script>
+            const MIN_NUM_PASSWORD = 6
+            
+            const passwordElement =  document.querySelector('#password')
+            const submitButton = document.querySelector('#submitBtn')
+
+            passwordElement.addEventListener ( 'input', function(){
+                const isPasswordCorrect = passwordElement.value.length >= MIN_NUM_PASSWORD 
+
+                isPasswordCorrect ?
+                    submitButton.removeAttribute('disabled') :
+                    submitButton.setAttribute('disabled', 'true')
+
+                // ternary operator jjavascript
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+            })
+        </script>
+    </body>
+</html>
